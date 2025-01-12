@@ -1,0 +1,67 @@
+:root {
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+
+@supports (font-variation-settings: normal) {
+    :root { font-family: InterVariable, sans-serif; }
+}
+
+body {
+    background-color: black;
+    color: white;
+    justify-content: center;
+    display: flex;
+
+    overflow: hidden;
+}
+
+#content {
+    width: 50vw;
+    overflow: hidden;
+
+    padding-top: 10vh;
+    box-sizing: border-box;
+    font-size: 1vw;
+}
+
+@media screen and (max-width: 500px) {
+    #content {
+        width: 90vw;
+        overflow: hidden;
+    
+        padding-top: 10vh;
+        box-sizing: border-box;
+        font-size: 1.8vw;
+    }
+}
+
+.name-swap-container {
+    position: relative;
+    overflow: hidden;
+    height: 50px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.name-item {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease-in-out;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.name-item.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.name-item.previous {
+    opacity: 0;
+    transform: translateX(-100%);
+}
